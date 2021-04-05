@@ -1,0 +1,1 @@
+web: gunicorn spoofy:app
