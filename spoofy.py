@@ -25,13 +25,13 @@ def main_page() -> Response:
         # Some people say first ip in list, some people say last
         # I don't know who to believe
         # So just believe both
-        x= request.headers["X-Forwarded-For"]
+        x = request.headers["X-Forwarded-For"]
         ips: List[str] = request.headers["X-Forwarded-For"].split(", ")
         if not ips:
             return text_response("How is it even possible to have 0 IPs???", 400)
         if ips[0] != ips[-1]:
             return text_response(
-                "First and last IPs disagree so I'm just going to not serve this request." + x,
+                "First and last IPs disagree so I'm just going to not serve this request.\n" + x + "\n" + ips,
                 400,
             )
         ip: str = ips[0]
