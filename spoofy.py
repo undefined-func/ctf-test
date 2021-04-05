@@ -31,7 +31,7 @@ def main_page() -> Response:
             return text_response("How is it even possible to have 0 IPs???", 400)
         if ips[0] != ips[-1]:
             return text_response(
-                "First and last IPs disagree so I'm just going to not serve this request.\n" + x + "\n" + ips,
+                "First and last IPs disagree so I'm just going to not serve this request.\n" + x + "\n" + str(ips),
                 400,
             )
         ip: str = ips[0]
